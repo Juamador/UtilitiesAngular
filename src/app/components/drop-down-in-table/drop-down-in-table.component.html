@@ -1,0 +1,26 @@
+<h4>Llenando un dropdown dentro de una tabla html con horarios diferentes por materia</h4>
+<table>
+    <thead>
+        <tr style="background-color: blue; color: white;">
+            <th>
+            </th>
+            <th style="width: 250px;">Materia</th>
+            <th style="width: 250px;">
+                Horario
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let materia of MateriasList">
+            <td><input type="checkbox" id="chkselect" (change)="GetMateriaSchedule(materia)"></td>
+            <td>{{materia.materia}}</td>
+            <td>
+                <select name="Schedule" [(ngModel)]="materia.pkidhorario" class="form-control">
+                  <option [value]="0">Seleccionar</option>
+                  <option *ngFor="let item of materia.schedules" [value]="item.idhorario">{{item.horario}}</option>
+              </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

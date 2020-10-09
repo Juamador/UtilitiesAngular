@@ -1,0 +1,30 @@
+<div class="modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{title}}</h5>
+                <button type="button" class="close" (click)="decline()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <div>
+                        <input [(ngModel)]="objModel.Description" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Activa</label>
+                    <div>
+                        <input type="checkbox" class="form-control" [(ngModel)]="objModel.IsDeleted">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="decline()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="Save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

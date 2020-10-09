@@ -1,0 +1,66 @@
+<div class="row">
+
+    <button class="btn btn-outline-primary" (click)="GetPartialNewCategory()">
+    <i class="fa fa-plus"></i>
+    Add new
+  </button>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Id</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Activa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of CategoryList; let i = index">
+                <td class="text-center" style="width: 110px;">
+                    <a type="button" class="btn btn-primary btn-sm" [routerLink]="['/edit/1']">
+                        <i class="fa fa-eye" aria-hidden="true"></i> Ver
+                    </a>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="DeleteCategorie(item)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+                </td>
+                <td>{{i+1}}</td>
+                <td>{{item.Description}}</td>
+                <td>
+                    <input type="checkbox" checked="!item.IsDeleted">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Captura del nombre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Indique su nombre</label>
+                    <div>
+                        <input [(ngModel)]="ObjPerson.FirstName" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <div>
+                        <input [(ngModel)]="ObjPerson.LastName" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="AddPerson()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
